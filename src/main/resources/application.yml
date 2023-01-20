@@ -1,0 +1,43 @@
+spring:
+  profiles:
+    active: dev
+  datasource:
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  #servlet:
+    #context-path: /api
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    username: people_user
+    url: jdbc:h2:mem:people
+    password: 'es5ZWvLMG)8t+^y:'
+home:
+  message: Attornatus people API!
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  h2:
+    console:
+      enabled: 'true'
+  datasource:
+    username: people_user_dev
+    url: jdbc:h2:mem:people-dev
+    password: ''
+  jpa:
+    show-sql: 'true'
+    properties:
+      hibernate:
+        show-sql: 'true'
+home:
+  message: Attornatus people API(Dev)!
