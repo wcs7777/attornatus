@@ -2,8 +2,9 @@
 
 ### Descrição
 Projeto criado para a avaliação de uma vaga na __Attornatus__ onde foi utilizado Spring Boot para criar uma RESTful API.
-O build da API pode ser encontrada em [attornatus-0.0.1.jar](attornatus-0.0.1.jar) e ser executado com  
-`java -jar attornatus-0.0.1.jar --spring.profiles.active=prod`
+O build da API pode ser encontrado em [attornatus-0.0.1.jar](attornatus-0.0.1.jar) e ser executado com  
+`java -jar attornatus-0.0.1.jar --spring.profiles.active=prod`  
+O build gerado pelo github actions pode ser encontrado em [Package](https://github.com/wcs7777/attornatus/suites/10481946812/artifacts/519529913).  
 As respostas das perguntas da avaliação podem ser encontradas em [avaliao_desenvolvedor_backend.docx
 ](avaliao_desenvolvedor_backend.docx)
 
