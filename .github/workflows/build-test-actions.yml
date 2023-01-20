@@ -1,6 +1,9 @@
 name: Build the project with Maven
 run-name: ${{ github.actor }} is building the project
-on: [push]
+on:
+  push:
+    paths:
+      - src/**
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
