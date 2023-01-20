@@ -12,6 +12,7 @@ jobs:
         with:
           java-version: '19'
           distribution: 'temurin'
+          cache: maven
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots package
       - name: Move package
