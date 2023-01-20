@@ -1,8 +1,6 @@
 package com.attornatus.controller;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.ZoneId;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
@@ -67,15 +65,8 @@ public class PersonController {
 	}
 
 	@GetMapping(path = "{birth:\\d\\d\\d\\d-\\d\\d-\\d\\d}")
-	public List<Person> getByBirth(@PathVariable("birth") String birth)
-		throws ParseException {
-		return this.service.getByBirth(
-			new SimpleDateFormat("yyyy-MM-dd")
-				.parse(birth)
-				.toInstant()
-				.atZone(ZoneId.systemDefault())
-				.toLocalDate()
-		);
+	public List<Person> getByBirth(@PathVariable("birth") String birth) {
+		return this.service.getByBirth(LocalDate.parse(birth));
 	}
 
 }
