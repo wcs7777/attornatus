@@ -141,8 +141,8 @@ public class AddressServiceTest {
 	}
 
 	@Test
-	void testId2ForeignKey() {
-		assertThat(this.service.id2ForeignKey(1L))
+	void testId2foreignKey() {
+		assertThat(this.service.id2foreignKey(1L))
 			.isEqualTo(this.resident);
 	}
 

@@ -20,6 +20,6 @@ public interface AddressService {
 	public List<Address> getAllByResident(final Long resident);
 	public Address setMain(final Long resident, final Long id);
 	public Address getMain(final Long resident);
-	public Person id2ForeignKey(final Long resident);
+	public Person id2foreignKey(final Long resident);
 
 }

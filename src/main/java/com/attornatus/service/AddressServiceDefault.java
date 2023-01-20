@@ -24,7 +24,7 @@ public class AddressServiceDefault implements AddressService {
 	@Override
 	@Transactional
 	public Address create(final Long resident, @Valid final Address address) {
-		final Person foreignKey = this.id2ForeignKey(resident);
+		final Person foreignKey = this.id2foreignKey(resident);
 		if (address.getIsMain()) {
 			this.repository.resetAllIsMain(foreignKey);
 		}
@@ -44,7 +44,7 @@ public class AddressServiceDefault implements AddressService {
 		@Valid final Address address
 	) {
 		final Address found = this.getById(resident, id);
-		final Person foreignKey = this.id2ForeignKey(resident);
+		final Person foreignKey = this.id2foreignKey(resident);
 		if (address.getIsMain()) {
 			this.repository.resetAllIsMain(foreignKey);
 		}
@@ -66,13 +66,13 @@ public class AddressServiceDefault implements AddressService {
 	@Override
 	public Address getById(final Long resident, final Long id) {
 		return this.repository
-			.findByIdAndResident(id, this.id2ForeignKey(resident))
+			.findByIdAndResident(id, this.id2foreignKey(resident))
 			.orElseThrow(EntityNotFoundException::new);
 	}
 
 	@Override
 	public List<Address> getAllByResident(final Long resident) {
-		return this.repository.findByResident(this.id2ForeignKey(resident));
+		return this.repository.findByResident(this.id2foreignKey(resident));
 	}
 
 	@Override
@@ -91,12 +91,12 @@ public class AddressServiceDefault implements AddressService {
 	@Override
 	public Address getMain(final Long resident) {
 		return this.repository
-			.findByResidentAndIsMainTrue(this.id2ForeignKey(resident))
+			.findByResidentAndIsMainTrue(this.id2foreignKey(resident))
 			.orElseThrow(EntityNotFoundException::new);
 	}
 
 	@Override
-	public Person id2ForeignKey(final Long resident) {
+	public Person id2foreignKey(final Long resident) {
 		return this.foreignKeyRepository
 			.findById(resident)
 			.orElseThrow(EntityNotFoundException::new);
